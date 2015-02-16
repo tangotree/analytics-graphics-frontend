@@ -1,0 +1,87 @@
+<div class="row">
+    <div class="col-xs-3 col-md-2" id="builder-container">
+        <form id="chart_config_form">
+            <div class="form-inline well well-sm condensed">
+
+                <label for="chart_config_form_from" class="input-mini">From/To</label>
+                <input ng-model="builder_options.from" id="chart_config_form_from" name="from" type="text" class="input-mini"
+                       required="required">
+                →
+                <input ng-model="builder_options.to" id="chart_config_form_to" name="to" type="text" class="input-mini"
+                       required="required">
+                <br>
+
+                <label for="compare_to" class="input-mini">Compare</label>
+                <input ng-model="builder_options.compare_to" id="compare_to" name="compare_to" type="text" class="input-medium"
+                       placeholder="e.g. -7 days">
+                <br>
+
+                <label for="granularity" class="input-mini">Granularity</label>
+                <select class="input-medium" id="granularity" required="required"
+                        ng-model="builder_options.granularity"
+                        ng-options="granularity.id as granularity.title for granularity in granularities">
+                </select>
+                <br>
+            </div>
+
+            <div class="form-inline well well-sm condensed">
+                <label for="chart_type" class="input-mini">Chart type</label>
+                <select class="input-medium" id="chart_type" required="required"
+                        ng-model="builder_options.chart_type" name="chart_type"
+                        ng-options="type.id as type.title for type in chart_types">
+                </select>
+                <br>
+            </div>
+
+            <div id="query_config_stack">
+                <div class="well well-small query_config_0">
+
+                    <p class="query-config-new-title">
+                        Query
+                    </p>
+
+                    <div class="form-inline">
+                        <div>
+                            <input ng-model="builder_options.application" type="text"
+                                   autocomplete="off" autocorrect="off"
+                                   autocapitilize="off"
+                                   spellcheck="false" style="width: 208px;"
+                                   typeahead="application for application in applications"
+                                   typeahead-min-length="0"
+                                   placeholder="Application...">
+                        </div>
+                    </div>
+
+                    <div class="form-inline">
+                        <div class="">
+                            <input ng-model="builder_options.metric" type="text"
+                                   autocomplete="off" autocorrect="off"
+                                   autocapitilize="off" spellcheck="false" style="width: 208px;"
+                                   typeahead="metric as metric.title for metric in metrics | filter:$viewValue"
+                                   typeahead-min-length="0"
+                                   placeholder="Metrics...">
+                        </div>
+
+                        <div>
+                            <input ng-model="builder_options.dimension" type="text"
+                                   autocomplete="off" autocorrect="off"
+                                   autocapitilize="off" spellcheck="false" style="width: 208px;"
+                                   typeahead="dimension as dimension.title for dimension in dimensions | filter:$viewValue"
+                                   placeholder="Dimensions...">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <button type="submit" id="show_chart"
+                    ng-click="sendQuery()"
+                    class="btn btn-primary showChartButton">Show chart</button>
+        </form>
+    </div>
+    <div class="col-xs-15 col-md-10" id="chart-container">
+        <div id="">&nbsp;</div>
+        <div id="messages">&nbsp;</div>
+        <div id="chart">
+            <table cellpadding="0" cellspacing="0" border="0" class="display" id="datatables-table"></table>
+        </div>
+    </div>
+</div>

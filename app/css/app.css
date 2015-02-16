@@ -1,0 +1,24 @@
+.input-mini {
+    width: 70px;
+}
+
+.input-medium {
+    width: 160px;
+}
+
+div.condensed label {
+    height: 20px;
+    padding: 0px;
+    padding-left: 2px;
+    font-size: 12px;
+    margin-bottom: 2px;
+}
+
+div.condensed input {
+    height: 20px;
+    padding: 0px;
+    padding-left: 2px;
+    font-size: 12px;
+    margin-bottom: 2px;
+    margin-top: 0px;
+}

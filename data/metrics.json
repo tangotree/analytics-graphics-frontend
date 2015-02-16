@@ -1,0 +1,20 @@
+[
+    {
+        "id": "_active_users_selector",
+        "title": "Active Users",
+        "type": "Basic",
+        "description": "Number of users with at least one visit during the period, meaning the number of users during the period."
+    },
+    {
+        "id": "_new_game_users_selector_ios",
+        "title": "New Users",
+        "type": "Basic",
+        "description": "Number of users that start playing the game on this platform. These are users that were not playing the game in any other platform before."
+    },
+    {
+        "id": "active_users_rs",
+        "title": "Active Users Deprecated",
+        "type": "General",
+        "description": "Number of users with at least one visit to the game during the period, meaning the number of users playing the game during the period."
+    }
+]

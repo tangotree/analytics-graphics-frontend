@@ -1,0 +1,38 @@
+[
+    {
+        "id": 1,
+        "title": "Country"
+    },
+    {
+        "id": 2,
+        "title": "Sex"
+    },
+    {
+        "id": 3,
+        "title": "Age"
+    },
+    {
+        "id": 4,
+        "title": "Track"
+    },
+    {
+        "id": 5,
+        "title": "Days from register"
+    },
+    {
+        "id": 6,
+        "title": "Device"
+    },
+    {
+        "id": 7,
+        "title": "OS Version"
+    },
+    {
+        "id": 8,
+        "title": "Country Code"
+    },
+    {
+        "id": 9,
+        "title": "Language"
+    }
+]
