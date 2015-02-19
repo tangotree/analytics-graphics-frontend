@@ -5,8 +5,8 @@
         .controller('BuilderController', [
             '$scope',
             '$http',
-            '$resource',
-            function ( $scope, $http, $resource) {
+            'chartFactory',
+            function ( $scope, $http, chartFactory) {
                 $scope.builder_options = {
                     from: '-30 days',
                     to: 'now',
@@ -48,23 +48,39 @@
 
                 $scope.dimensions = [];
 
-                $http( {
+                $http({
                     url: './data/dimensions.json'
                 }).then(function (response) {
                     $scope.dimensions = response.data;
                 });
                 $scope.metrics = [];
 
-                $http( {
+                $http({
                     url: './data/metrics.json'
                 }).then(function (response) {
                     $scope.metrics = response.data;
-                    console.debug($scope.metrics);
                 });
 
                 $scope.sendQuery = function() {
-                    console.debug($scope.builder_options);
-                }
+                    var promise = chartFactory.get($scope.builder_options);
+
+                    promise.then(function(response) {
+                        $scope.chart1 = new Highcharts.StockChart({
+                             chart: {
+                                renderTo: 'chart1'
+                             },
+                             series: response.series,
+                             title: {
+                                 text: 'Test'
+                             },
+                             rangeSelector: {
+                                selected: 5
+                             }
+                          });
+                    }, function(reason) {
+                        alert('Failed: ' + reason);
+                    });
+                };
             }
         ]);
 }());

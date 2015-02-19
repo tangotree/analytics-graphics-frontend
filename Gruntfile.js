@@ -48,7 +48,7 @@ module.exports = function ( grunt ) {
                 'components/*/*.css'
             ],
             html: [
-                'index.html',
+                'app/config/app.html',
                 'app/views/**'
             ]
         },

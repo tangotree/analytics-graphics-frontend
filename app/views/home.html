@@ -1,4 +1,10 @@
 <div class="container-fluid">
-    <highchart id="chart1" config="chartConfig"></highchart>
-    <highchart id="chart2" config="chartConfig2"></highchart>
+    <div class="row">
+
+        <div ng-repeat="chartId in chartsIds">
+            <div class="col-md-6">
+                <div id="chart{{chartId}}"></div>
+            </div>
+        </div>
+    </div>
 </div>

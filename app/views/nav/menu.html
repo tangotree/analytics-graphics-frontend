@@ -1,0 +1,80 @@
+<nav class="navbar navbar-default">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">Brand</a>
+        </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav">
+                <li ng-class="{active:location == '/'}">
+                    <a href="#" ng-click="go('/')">Dashboard</a>
+                </li>
+                <li ng-class="{active:location == '/realtime'}">
+                    <a href="#" ng-click="go('/realtime')">Realtime</a>
+                </li>
+                <li ng-class="{active:location == '/builder'}">
+                    <a href="#" ng-click="go('/builder')">Builder</a>
+                </li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Dropdown <span class="caret"></span></a>
+                    <ul class="dropdown-menu" role="menu">
+                        <li><a href="#">Action</a></li>
+                        <li class="divider"></li>
+                        <li><a href="#">Separated link</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+</nav>
+
+<!--<div class="menu-wrap">-->
+    <!--<nav class="menu">-->
+        <!--<div class="profile clearfix">-->
+            <!--<p>-->
+                <!--<strong>{{auth.name}}</strong>-->
+                <!--{{auth.email}}-->
+                <!--<button class="btn btn-danger btn-xs" ng-click="go('logout')">Logout</button>-->
+            <!--</p>-->
+        <!--</div>-->
+        <!--<ul>-->
+            <!--<li>-->
+                <!--<button class="btn btn-link" ng-click="go('games')">-->
+                    <!--<span class="glyphicon glyphicon-th-large"></span>-->
+                    <!--<span>Games</span>-->
+                <!--</button>-->
+            <!--</li>-->
+            <!--<li>-->
+                <!--<button class="btn btn-link" ng-click="go('branches')" ng-disabled="currentCtrl === 'GamesCtrl'">-->
+                    <!--<span class="glyphicon glyphicon-folder-open"></span>-->
+                    <!--<span>Branches</span>-->
+                <!--</button>-->
+            <!--</li>-->
+            <!--<li>-->
+                <!--<button class="btn btn-link" ng-click="go('list')" ng-disabled="currentCtrl === 'GamesCtrl' || currentCtrl === 'BranchesCtrl'">-->
+                    <!--<span class="glyphicon glyphicon-list-alt"></span>-->
+                    <!--<span>Files</span>-->
+                <!--</button>-->
+            <!--</li>-->
+            <!--<li>-->
+                <!--<button class="btn btn-link" ng-click="go('diff')" ng-disabled="currentCtrl === 'GamesCtrl'">-->
+                    <!--<span class="glyphicon glyphicon-random"></span>-->
+                    <!--<span>Diff branches</span>-->
+                <!--</button>-->
+            <!--</li>-->
+        <!--</ul>-->
+    <!--</nav>-->
+    <!--<button type="button" class="close" ng-click="menuToggle = null">-->
+        <!--<span>×</span>-->
+    <!--</button>-->
+<!--</div>-->
