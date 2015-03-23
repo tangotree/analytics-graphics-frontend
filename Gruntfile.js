@@ -102,6 +102,21 @@ module.exports = function ( grunt ) {
             }
         },
 
+
+        cssmin: {
+            default: {
+                options: {
+                    keepSpecialComments: 0
+                },
+                files: {
+                    'dist/graphics.min.css': [
+                        '<%= files.css_vendor %>',
+                        'dist/build/graphics.min.css'
+                    ]
+                }
+            }
+        },
+
         csslint: {
             options: {
                 'box-model':                false,
@@ -139,6 +154,21 @@ module.exports = function ( grunt ) {
         },
 
 
+        uglify: {
+            app: {
+                options: {
+                    mangle:         false,
+                    drop_console:   true
+                },
+                files: {
+                    'dist/graphics.min.js': [
+                        '<%= files.js_vendor %>',
+                        '<%= files.js %>',
+                    ]
+                }
+            }
+        },
+
         htmlbuild: {
             dev: {
                 src:            'app/config/app.html',
@@ -155,6 +185,23 @@ module.exports = function ( grunt ) {
                         src: [
                                 '<%= files.css_vendor %>',
                                 '<%= files.css %>'
+                        ]
+                    }
+                }
+            },
+            prod: {
+                src:            'app/config/app.html',
+                dest:           'dist/index.html',
+                options: {
+                    relative:   false,
+                    scripts: {
+                        src: [
+                                'dist/graphics.min.js'
+                        ]
+                    },
+                    styles: {
+                        src: [
+                                'dist/graphics.min.css'
                         ]
                     }
                 }
@@ -175,6 +222,22 @@ module.exports = function ( grunt ) {
                     {
                         src: 'components/bootstrap/bootstrap.min.css',
                         dest: 'components/bootstrap/bootstrap.min.css'
+                    }
+                ]
+            },
+            html: {
+                options: {
+                    patterns: [
+                        {
+                            match:          /dist\//g,
+                            replacement:    ''
+                        }
+                    ]
+                },
+                files: [
+                    {
+                        src:                'dist/index.html',
+                        dest:               'dist/index.html'
                     }
                 ]
             },
@@ -280,5 +343,6 @@ module.exports = function ( grunt ) {
      Task build
      ----------------------------
      */
-    grunt.registerTask('build', ['update', 'copy', 'clean:assets', 'csslint', 'cssmin', 'jshint']);
+    grunt.registerTask('build', ['update', 'copy', 'clean:assets', 'csslint', 'cssmin', 'jshint',
+        'uglify', 'htmlbuild:prod', 'replace:html']);
 };

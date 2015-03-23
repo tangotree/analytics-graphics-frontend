@@ -1,5 +1,6 @@
 {
     "baseUrl": "http://localhost:8888",
+    "wsBaseUrl": "ws://localhost:8888",
     "dashboard": {
         "charts": [
             { "chartId": 1 },
