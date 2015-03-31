@@ -1,20 +1,38 @@
 [
     {
-        "id": "_active_users_selector",
-        "title": "Active Users",
+        "id": "email.open",
+        "title": "Emails opened",
         "type": "Basic",
         "description": "Number of users with at least one visit during the period, meaning the number of users during the period."
     },
     {
-        "id": "_new_game_users_selector_ios",
+        "id": "user.signup",
         "title": "New Users",
         "type": "Basic",
-        "description": "Number of users that start playing the game on this platform. These are users that were not playing the game in any other platform before."
+        "description": "Number of users that start on this platform."
     },
     {
-        "id": "active_users_rs",
-        "title": "Active Users Deprecated",
+        "id": "user.info",
+        "title": "User info",
         "type": "General",
-        "description": "Number of users with at least one visit to the game during the period, meaning the number of users playing the game during the period."
+        "description": "Number of users with at least one visit to us during the period."
+    },
+    {
+        "id": "email.track.created",
+        "title": "Email track created",
+        "type": "General",
+        "description": "Number of users with at least one visit to us during the period."
+    },
+    {
+        "id": "crx.uninstall",
+        "title": "Chrome extension uninstalled",
+        "type": "General",
+        "description": "Number of users with at least one visit to us during the period."
+    },
+    {
+        "id": "user.acquired",
+        "title": "User acquired",
+        "type": "General",
+        "description": "Number of users with at least one visit to us during the period."
     }
 ]

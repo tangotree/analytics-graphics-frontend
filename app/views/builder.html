@@ -1,6 +1,6 @@
 <div class="row">
     <div class="col-xs-3 col-md-2" id="builder-container">
-        <form id="chart_config_form">
+        <form id="chart_config_form" name="chart_form">
             <div class="form-inline well well-sm condensed">
 
                 <label for="chart_config_form_from" class="input-mini">From/To</label>
@@ -55,11 +55,12 @@
                     <div class="form-inline">
                         <div class="">
                             <input ng-model="builder_options.metric" type="text"
+                                   name="metric"
                                    autocomplete="off" autocorrect="off"
                                    autocapitilize="off" spellcheck="false" style="width: 208px;"
                                    typeahead="metric as metric.title for metric in metrics | filter:$viewValue"
                                    typeahead-min-length="0"
-                                   placeholder="Metrics...">
+                                   placeholder="Metrics..." required> *
                         </div>
 
                         <div>
@@ -72,7 +73,7 @@
                     </div>
                 </div>
             </div>
-            <button type="submit" id="show_chart"
+            <button ng-disabled="!chart_form.$valid" type="submit" id="show_chart"
                     ng-click="sendQuery()"
                     class="btn btn-primary showChartButton">Show chart</button>
         </form>

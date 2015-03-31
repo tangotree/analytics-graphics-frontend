@@ -8,7 +8,7 @@
             'chartFactory',
             function ( $scope, $http, chartFactory) {
                 $scope.builder_options = {
-                    from: '-30 days',
+                    from: '-3 days',
                     to: 'now',
                     compare_to: '',
                     granularity: 'day',
@@ -20,26 +20,20 @@
                 };
 
                 $scope.granularities = [
-                    { "id": "day", "title": "Day"},
-                    { "id": "week", "title": "Week" },
-                    { "id": "month", "title": "Month" },
-                    { "id": "hour", "title": "Hour" },
                     { "id": "minute", "title": "Minute" },
+                    { "id": "hour", "title": "Hour" },
                     { "id": "three_hour", "title": "Three Hour" },
                     { "id": "six_hour", "title": "Six Hour" },
-                    { "id": "twelve_hour", "title": "Twelve Hour" }
+                    { "id": "twelve_hour", "title": "Twelve Hour" },
+                    { "id": "day", "title": "Day"},
+                    { "id": "week", "title": "Week" },
+                    { "id": "month", "title": "Month" }
                 ];
 
                 $scope.chart_types = [  
                     { "id": "line", "title": "Line"},
                     { "id": "column", "title": "Column"},
-                    { "id": "stackedArea", "title": "Stacked Area"},
-                    { "id": "summarizedColumn", "title": "Summarized Column"},
-                    { "id": "summarizedPie", "title": "Summarized Pie"},
-                    { "id": "percentageArea", "title": "Percentage Area"},
-                    { "id": "stackedColumns", "title": "Stacked Columns"},
-                    { "id": "table", "title": "Table"},
-                    { "id": "lineWithoutMarkers", "title": "Line Without Markers"}
+                    { "id": "area", "title": "Stacked Area"}
                 ];
 
                 $scope.applications = [
@@ -62,21 +56,32 @@
                 });
 
                 $scope.sendQuery = function() {
-                    var promise = chartFactory.get($scope.builder_options);
+                    var chart_options = JSON.parse(JSON.stringify($scope.builder_options));
+                    chart_options['metric'] = $scope.builder_options['metric']['id'];
+                    var promise = chartFactory.get(chart_options);
 
                     promise.then(function(response) {
                         $scope.chart1 = new Highcharts.StockChart({
-                             chart: {
-                                renderTo: 'chart1'
-                             },
-                             series: response.series,
-                             title: {
-                                 text: 'Test'
-                             },
-                             rangeSelector: {
+                            chart: {
+                                renderTo: 'chart1',
+                                zoomType: 'x',
+                                type: chart_options['chart_type']
+                            },
+                            plotOptions: {
+                                series: {
+                                    dataGrouping: {
+                                        enabled: false
+                                    }
+                                }
+                            },
+                            series: response.series,
+                            title: {
+                                text: response.title
+                            },
+                            rangeSelector: {
                                 selected: 5
-                             }
-                          });
+                            }
+                        });
                     }, function(reason) {
                         alert('Failed: ' + reason);
                     });
