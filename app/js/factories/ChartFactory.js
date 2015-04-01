@@ -11,15 +11,16 @@
                     'get': function(params) {
                         var loadConfig = function() {
                             return buildFactory.then(function(response){
-                                return response.data.baseUrl;
+                                return response;
                             });
                         },
-                        getData = function(baseUrl) {
+                        getData = function(promise) {
+                            var baseUrl = promise.data.baseUrl;
                             var Builder = $resource(baseUrl + '/api/builder');
 
                             var deferred = $q.defer();
 
-                            Builder.get(params, function(data){
+                            Builder.get(baseUrl, function(data){
                                 deferred.resolve(data);
                             });
 
