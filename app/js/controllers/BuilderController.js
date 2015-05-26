@@ -57,7 +57,7 @@
 
                 $scope.sendQuery = function() {
                     var chart_options = JSON.parse(JSON.stringify($scope.builder_options));
-                    chart_options['metric'] = $scope.builder_options['metric']['id'];
+                    chart_options.metric = $scope.builder_options.metric.id;
                     var promise = chartFactory.get(chart_options);
 
                     promise.then(function(response) {
@@ -65,7 +65,7 @@
                             chart: {
                                 renderTo: 'chart1',
                                 zoomType: 'x',
-                                type: chart_options['chart_type']
+                                type: chart_options.chart_type
                             },
                             plotOptions: {
                                 series: {
