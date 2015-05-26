@@ -7,8 +7,6 @@
             '$resource',
             '$wamp',
             function ( $scope, $resource, $wamp) {
-                $wamp.open();
-
                 function onevent(args) {
                     var shouldShift = false;
 
@@ -24,25 +22,22 @@
                 }
                 $wamp.subscribe('com.myapp.test', onevent);
 
-                $scope.$on("$wamp.open", function (event, session) {
-                    console.log('We are connected to the WAMP Router!');
-                    $scope.chart = new Highcharts.StockChart({
-                        chart: {
-                            renderTo: 'chart'
-                        },
-                        series: [
-                            {data: []}
-                        ],
-                        title: {
-                            text: 'Realtime amazing graphics'
-                        },
-                        rangeSelector: {
-                            selected: 5
-                        },
-                        navigator: {
-                            enabled: false
-                        }
-                    });
+                $scope.chart = new Highcharts.StockChart({
+                    chart: {
+                        renderTo: 'chart'
+                    },
+                    series: [
+                        {data: []}
+                    ],
+                    title: {
+                        text: 'Realtime amazing graphics'
+                    },
+                    rangeSelector: {
+                        selected: 5
+                    },
+                    navigator: {
+                        enabled: false
+                    }
                 });
             }
         ]);
