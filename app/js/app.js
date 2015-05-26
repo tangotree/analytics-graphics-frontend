@@ -49,5 +49,6 @@
             }
         ])
         .run(function($wamp){
+            $wamp.open();
         });
 }());
