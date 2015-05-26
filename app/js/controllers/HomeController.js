@@ -27,10 +27,18 @@
                     var user = ChartData.get(function (data) {
                         var chart = new Highcharts.StockChart({
                             chart: {
-                                renderTo: chartDivId
+                                renderTo: chartDivId,
+                                zoomType: 'x'
                             },
                             legend: {
                                 enabled: true
+                            },
+                            plotOptions: {
+                                series: {
+                                    dataGrouping: {
+                                        enabled: false
+                                    }
+                                }
                             },
                             series: data.series,
                             title: {

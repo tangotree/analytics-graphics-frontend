@@ -20,7 +20,8 @@
 
                             var deferred = $q.defer();
 
-                            Builder.get(baseUrl, function(data){
+                            var json_params = angular.toJson(params, false);
+                            Builder.get({"query": json_params}, function(data){
                                 deferred.resolve(data);
                             });
 

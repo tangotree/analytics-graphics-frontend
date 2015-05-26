@@ -11,12 +11,14 @@
             'tt.directives.menu',
             'tt.factories.chart',
             'tt.factories.build',
-            'highcharts-ng'
+            'highcharts-ng',
+            'vxWamp'
         ])
         .config([
             '$routeProvider',
             '$locationProvider',
-            function ( $routeProvider, $locationProvider ) {
+            '$wampProvider',
+            function ( $routeProvider, $locationProvider, $wampProvider ) {
                 $routeProvider.
                     when('/', {
                         controller:     'HomeController',
@@ -37,7 +39,15 @@
                 $locationProvider.hashPrefix('!');
 
                 $locationProvider.html5Mode(true);
+
+                var wampBaseUrl = "ws://127.0.0.1:8080/ws";
+                var realm = "realm1";
+                $wampProvider.init({
+                    url: wampBaseUrl,
+                    realm: realm
+                });
             }
         ])
-        .run( function run () {});
+        .run(function($wamp){
+        });
 }());

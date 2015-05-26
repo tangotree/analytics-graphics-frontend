@@ -305,7 +305,9 @@ module.exports = function ( grunt ) {
                     'jquery-ui-datepicker/jquery.ui-datepicker.js':     'jquery-ui/ui/datepicker.js',
                     'bootstrap/bootstrap.min.css':                      'bootstrap/dist/css/bootstrap.min.css',
                     'bootstrap-select/bootstrap-select.min.css':        'bootstrap-select/dist/css/bootstrap-select.min.css',
-                    'jquery-ui/jquery.ui-min.css':                      'jquery-ui/themes/smoothness/jquery-ui.min.css'
+                    'jquery-ui/jquery.ui-min.css':                      'jquery-ui/themes/smoothness/jquery-ui.min.css',
+                    'autobahn/autobahn.min.js':                         'autobahn/autobahn.min.js',
+                    'angular-wamp/angular-wamp.min.js':                 'angular-wamp/release/angular-wamp.min.js'
                 }
             },
             resources: {

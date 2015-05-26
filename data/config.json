@@ -1,12 +1,13 @@
 {
     "baseUrl": "http://localhost:8888",
-    "wsBaseUrl": "ws://localhost:8888",
     "dashboard": {
         "charts": [
             { "chartId": 1 },
             { "chartId": 2 },
             { "chartId": 3 },
-            { "chartId": 4 }
+            { "chartId": 4 },
+            { "chartId": 5 },
+            { "chartId": 6 }
         ]
     }
 }
